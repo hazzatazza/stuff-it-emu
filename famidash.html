@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Algebra Cloud - Statistics 1.2.8</title>
+    <style>
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        #game { width: 100vw; height: 100vh; }
+        #start { padding: 20px; background: #2e7d32; color: white; border: none; cursor: pointer; font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    <button id="start">INITIALIZE MODULE 1.2.8</button>
+    <div id="game"></div>
+
+    <script>
+        document.getElementById('start').addEventListener('click', function() {
+            this.style.display = 'none';
+            
+            window.EJS_player = "#game";
+            window.EJS_core = "nes";
+            window.EJS_gameUrl = "Famidash.v1.2.8.nes"; // Make sure this file is in your main folder
+            
+            // This pulls the "brain" from a reliable source instead of your empty folders
+            window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+            
+            let script = document.createElement("script");
+            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+            document.body.appendChild(script);
+        });
+    </script>
+</body>
+</html>
