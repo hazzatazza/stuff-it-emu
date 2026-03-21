@@ -1,68 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Algebra Practice - Study Module</title>
+    <title>Algebra Cloud - Statistics 1.2.8</title>
     <style>
-        body { 
-            margin: 0; 
-            background: #0f0f0f; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            overflow: hidden; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        #game { 
-            width: 100vw; 
-            height: 100vh; 
-            display: none;
-        }
-
-        /* Your Algebra Flix Style Gradient Button */
-        #start { 
-            padding: 20px 40px; 
-            font-size: 18px;
-            font-weight: bold;
-            color: white; 
-            border: none; 
-            border-radius: 50px;
-            cursor: pointer; 
-            background: linear-gradient(135deg, #8e2de2, #4caf50); /* Purple to Green */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        #start:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.4);
-        }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        #game { width: 100vw; height: 100vh; }
+        #start { padding: 20px; background: #9102e3; color: white; border: none; cursor: pointer; font-family: sans-serif; }
     </style>
 </head>
 <body>
-
-    <button id="start">Play Famidash On Algebra Practice</button>
+    <button id="start">Play On Algebra Practise</button>
     <div id="game"></div>
 
     <script>
         document.getElementById('start').addEventListener('click', function() {
-            // Hide button and show game container
             this.style.display = 'none';
-            document.getElementById('game').style.display = 'block';
             
-            // Emulator Settings
             window.EJS_player = "#game";
             window.EJS_core = "nes";
-            window.EJS_gameUrl = "Famidash.v1.2.8.nes"; 
+            window.EJS_gameUrl = "Famidash.v1.2.8.nes"; // Make sure this file is in your main folder
             
-            // THE FIX: Force standard English to stop the en-GB 404 error
-            window.EJS_language = "en";
-            
-            // Pulls the engine from the CDN so your empty folders don't matter
+            // This pulls the "brain" from a reliable source instead of your empty folders
             window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
             
             let script = document.createElement("script");
