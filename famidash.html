@@ -2,26 +2,63 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Algebra Cloud - Statistics 1.2.8</title>
+    <title>Algebra Practice - Module 1.2.8</title>
     <style>
-        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        #game { width: 100vw; height: 100vh; }
-        #start { padding: 20px; background: #2e7d32; color: white; border: none; cursor: pointer; font-family: sans-serif; }
+        body { 
+            margin: 0; 
+            background: #0f0f0f; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            overflow: hidden; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #game { 
+            width: 100vw; 
+            height: 100vh; 
+            display: none;
+        }
+
+        /* The Algebra Flix style gradient button */
+        #start { 
+            padding: 20px 40px; 
+            font-size: 18px;
+            font-weight: bold;
+            color: white; 
+            border: none; 
+            border-radius: 50px;
+            cursor: pointer; 
+            background: linear-gradient(135deg, #8e2de2, #4caf50); /* Purple to Green */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #start:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.4);
+        }
     </style>
 </head>
 <body>
-    <button id="start">INITIALIZE MODULE 1.2.8</button>
+
+    <button id="start">Play Famidash On Algebra Practice</button>
     <div id="game"></div>
 
     <script>
         document.getElementById('start').addEventListener('click', function() {
             this.style.display = 'none';
+            document.getElementById('game').style.display = 'block';
             
             window.EJS_player = "#game";
             window.EJS_core = "nes";
-            window.EJS_gameUrl = "Famidash.v1.2.8.nes"; // Make sure this file is in your main folder
+            // Points to your NES file in the same folder
+            window.EJS_gameUrl = "Famidash.v1.2.8.nes"; 
             
-            // This pulls the "brain" from a reliable source instead of your empty folders
+            // Using the CDN so we don't need your local 'data' or 'cores' folders
             window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
             
             let script = document.createElement("script");
