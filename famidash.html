@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algebra Practice - Module 1.2.8</title>
+    <title>Algebra Practice - Study Module</title>
     <style>
-        /* Stealthy background and layout */
         body { 
             margin: 0; 
-            padding: 0;
             background: #0f0f0f; 
             display: flex; 
             justify-content: center; 
@@ -24,73 +21,52 @@
             display: none;
         }
 
-        /* The Algebra Flix style gradient button */
+        /* Your Algebra Flix Style Gradient Button */
         #start { 
-            padding: 22px 45px; 
-            font-size: 19px;
+            padding: 20px 40px; 
+            font-size: 18px;
             font-weight: bold;
             color: white; 
             border: none; 
             border-radius: 50px;
             cursor: pointer; 
             background: linear-gradient(135deg, #8e2de2, #4caf50); /* Purple to Green */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            z-index: 10;
+            letter-spacing: 1px;
         }
 
         #start:hover {
-            transform: scale(1.06);
-            filter: brightness(1.1);
-            box-shadow: 0 8px 25px rgba(142, 45, 226, 0.5);
-        }
-
-        #start:active {
-            transform: scale(0.98);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.4);
         }
     </style>
 </head>
 <body>
 
     <button id="start">Play Famidash On Algebra Practice</button>
-    
     <div id="game"></div>
 
     <script>
         document.getElementById('start').addEventListener('click', function() {
-            const btn = this;
-            const gameDiv = document.getElementById('game');
+            // Hide button and show game container
+            this.style.display = 'none';
+            document.getElementById('game').style.display = 'block';
             
-            // 1. Setup Emulator Config
+            // Emulator Settings
             window.EJS_player = "#game";
             window.EJS_core = "nes";
-            
-            // 2. Point to your game file (Must be in the same folder on GitHub)
             window.EJS_gameUrl = "Famidash.v1.2.8.nes"; 
             
-            // 3. FORCE English to fix the en-GB 404 error
+            // THE FIX: Force standard English to stop the en-GB 404 error
             window.EJS_language = "en";
             
-            // 4. Use the official CDN for the engine (fixes your missing folders)
+            // Pulls the engine from the CDN so your empty folders don't matter
             window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
             
-            // 5. Load the Emulator Loader script
             let script = document.createElement("script");
             script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-            
-            script.onload = function() {
-                // Hide button and show game only after the script loads
-                btn.style.display = 'none';
-                gameDiv.style.display = 'block';
-                console.log("Algebra Cloud: Engine Initialized.");
-            };
-
-            script.onerror = function() {
-                alert("Critical Error: Algebra Practice Module 1.2.8 failed to initialize. Check network connection.");
-            };
-
             document.body.appendChild(script);
         });
     </script>
